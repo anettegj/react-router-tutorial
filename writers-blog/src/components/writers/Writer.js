@@ -1,8 +1,12 @@
 import React, {Fragment} from 'react'
 
-export default props => 
+export default ({match, id, name, description, image}) => 
+    console.log(match, id, name, description, image) ||
     <Fragment>
         <div>
-            Some writer info
+            {id}
+            {name}
+            {description}
+            {image}
         </div>
     </Fragment>
