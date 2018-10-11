@@ -40,5 +40,30 @@
         "description": "Indian spiritual guru, considered as a Godman and leader of the Rajneesh movement. During his lifetime he was viewed as a controversial mystic, guru, and spiritual teacher. He advocated a more open attitude towards human sexuality, earning him the nickname \"sex guru\" in the Indian and later international press, although this attitude became more acceptable with time.",
         "image": "http://www.sannyas.wiki/images/5/5f/Osho_HD_083.jpg"
       }
+    ],
+
+    "texts": [
+      {
+        "id":"self-relience",
+        "writerId":"ralph-waldo-emerson",
+        "title":"Self-Relience",
+        "description":"In Self-Reliance,philosopher Ralph Waldo Emerson argues that polite society has an adverse effect on one's personal growth. Self-sufficiency, he writes, gives one the freedom to discover one'strue self and attain true independence.",
+        "published":"1841"
+      },
+      {
+        "id":"nature",
+        "writerId":"ralph-waldo-emerson",
+        "title":"Nature",
+        "description":"In the essay Emerson put forth the foundation of transcendentalism, a belief system that espouses a non-traditional appreciation of nature.",
+        "published":"1836"
+      },
+      {
+        "id":"thus-spoke-zarathustra",
+        "writerId":"friedrich-nietzsche",
+        "title":"Thus Spoke Zarathustra",
+        "description":"composed in four parts between 1883 and 1885 and published between 1883 and 1891.[1] Much of the work deals with ideas such as the \"eternal recurrence of the same\", the parable on the \"death of God\", and the \"prophecy\" of the Übermensch, which were first introduced in The Gay Science.",
+        "published":"1891"
+
+      }
     ]
   }

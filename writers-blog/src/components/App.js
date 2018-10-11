@@ -9,7 +9,7 @@ export default class extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3004/writers')
+    fetch('http://localhost:3004/writers?_embed=texts')
       .then(res => res.json())
       .then(writers => this.setState({writers}))
   }
@@ -28,7 +28,7 @@ export default class extends Component {
               <Link to="/">Home</Link>
             </li>
             <li> 
-              <Link to="/writers">Writers </Link>
+              <Link to="/writers">Writers</Link>
             </li>
           </ul>
 
