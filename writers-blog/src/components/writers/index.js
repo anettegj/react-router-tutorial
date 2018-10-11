@@ -1,12 +1,12 @@
 import React, {Fragment} from 'react'
 import {Link} from 'react-router-dom'
 
-export default ({writers}) => 
+export default ({ match: {url}, writers}) => 
     <Fragment>
         <ul>
-            {writers.map(writer => 
-                <li>
-                    <Link to=" ">name</Link>
+            {writers.map(({id, name}) => 
+                <li key={id}>
+                    <Link to={`${url}/${id}`}>{name}</Link>
                 </li>
             )}
         </ul>
