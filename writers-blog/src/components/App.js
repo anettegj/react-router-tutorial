@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { BrowserRouter, Link, Route, Switch } from 'react-router-dom'
 import Writers from './writers'
-import NotFound from './errors/404'
+import {NotFound} from './errors'
 
 export default class extends Component {
   state = {
