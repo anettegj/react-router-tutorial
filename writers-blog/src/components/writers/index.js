@@ -3,7 +3,6 @@ import {Link, Route} from 'react-router-dom'
 import Writer from './Writer'
 
 export default ({ match: {url}, writers}) => 
-    (console.log({...writers.find(w => w.id==="osho")}))||
     <Fragment>
         <ul>
             {writers.map(({id, name}) => 
