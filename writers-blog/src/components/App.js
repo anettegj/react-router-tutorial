@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from 'react'
-import { BrowserRouter, Link, Route } from 'react-router-dom'
+import { BrowserRouter, Link, Route, Switch } from 'react-router-dom'
 import Writers from './writers'
+import NotFound from './errors/404'
+
 export default class extends Component {
   state = {
     writers: []
@@ -33,8 +35,12 @@ export default class extends Component {
           <hr/>
           {/** Without Route exact the content of Home is displayed for the Writers link 
             as well. */}
-          <Route exact path="/" render={() => <div>Home</div>}></Route>
-          <Route path="/writers" render={props => <Writers {...props} writers={writers}/>}/>
+          <Switch>
+            <Route exact path="/" render={() => <div>Home</div>}></Route>
+            <Route path="/writers" render={props => <Writers {...props} writers={writers}/>}/>
+            {/**<Route render={() => <h3>404 - Page not found</h3>}/>*/}
+            <Route component={NotFound}/>
+          </Switch>
         </Fragment>
       </BrowserRouter>
     )

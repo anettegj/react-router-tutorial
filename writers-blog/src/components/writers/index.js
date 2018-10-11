@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react'
-import {Link, Route} from 'react-router-dom'
+import {Link, Route, Redirect} from 'react-router-dom'
 import Writer from './Writer'
 
 export default ({ match: {url}, writers}) => 
@@ -13,6 +13,17 @@ export default ({ match: {url}, writers}) =>
         </ul>
         <Route exact path={url} render={() => <h3>Please select a writer from above</h3>}/>
         <Route path={`${url}/:writerId`} render={
-            ({match}) => <Writer 
-                {...writers.find(writer => writer.id === match.params.writerId)}/> }/>
+            ({match}) => {
+                const writer = writers.find(writer => writer.id === match.params.writerId)
+                if (writer)
+                    return <Writer {...writer}/> 
+                else 
+                    // Redirect you to 404-page
+                    // return <Redirect to={'/404'}/>
+                    // don't redirect, just stay on the writers page and 
+                    // let user select an author from the lit
+                    return <h3>Unknown author</h3>  
+                }}
+                
+                />
     </Fragment>
