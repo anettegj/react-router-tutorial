@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import { BrowserRouter, Link, Route } from 'react-router-dom'
-
+import Writers from './writers'
 export default class extends Component {
   state = {
     writers: []
@@ -13,6 +13,9 @@ export default class extends Component {
   }
 
   render() {
+    
+    const {writers} = this.state
+
     return (
       <BrowserRouter>
         <Fragment>
@@ -27,10 +30,11 @@ export default class extends Component {
             </li>
           </ul>
 
+          <hr/>
           {/** Without Route exact the content of Home is displayed for the Writers link 
             as well. */}
           <Route exact path="/" render={() => <div>Home</div>}></Route>
-          <Route path="/writers" render={ () => {return <div>Writers</div>}}/>
+          <Route path="/writers" render={props => <Writers {...props} writers={writers}/>}/>
         </Fragment>
       </BrowserRouter>
     )
