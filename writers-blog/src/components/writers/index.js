@@ -11,6 +11,7 @@ export default ({ match: {url}, writers}) =>
                 </li>
             )}
         </ul>
+        <Route exact path={url} render={() => <h3>Please select a writer from above</h3>}/>
         <Route path={`${url}/:writerId`} render={
             ({match}) => <Writer 
                 {...writers.find(writer => writer.id === match.params.writerId)}/> }/>
