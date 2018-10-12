@@ -46,6 +46,9 @@ const styles = theme => ({
         backgroundColor: theme.palette.background.default,
         padding: theme.spacing.unit * 3,
     },
+    nested: {
+        paddingLeft: theme.spacing.unit * 4,
+    },
 })
 
 class Layout extends Component {
@@ -58,7 +61,7 @@ class Layout extends Component {
     }
 
     render() {
-        const { classes, children } = this.props
+        const { classes, children, writers } = this.props
 
         const drawer = (
             <div>
@@ -72,6 +75,17 @@ class Layout extends Component {
                     <MenuItem component={Link} to="/writers">
                         Writers
                     </MenuItem>
+                    <MenuList>
+                        {writers.map(writer => {
+                        return <MenuItem 
+                                    className={classes.nested} 
+                                    key={writer.id} 
+                                    component={Link} 
+                                    to={`/writers/${writer.id}`}>
+                                {writer.name}
+                                </MenuItem>
+                        })}
+                    </MenuList>
                 </MenuList>
             </div>
         )
