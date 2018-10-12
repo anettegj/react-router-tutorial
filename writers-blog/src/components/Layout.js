@@ -6,14 +6,14 @@ import {
     Typography,
     Drawer,
     Hidden,
-    Divider,
     CssBaseline,
     MenuItem,
     MenuList,
 } from '@material-ui/core'
 import { Menu } from '@material-ui/icons'
 import { withStyles } from '@material-ui/core/styles'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
+import { compose } from 'recompose'
 
 const drawerWidth = 240
 
@@ -61,7 +61,7 @@ class Layout extends Component {
     }
 
     render() {
-        const { classes, children, writers } = this.props
+        const { classes, location:{pathname}, children, writers } = this.props
 
         const drawer = (
             <div>
@@ -69,19 +69,21 @@ class Layout extends Component {
                     <div className={classes.toolbar} />
                 </Hidden>
                 <MenuList>
-                    <MenuItem component={Link} to="/">
+                    <MenuItem selected={'/' === pathname} component={Link} to="/">
                         Home
                     </MenuItem>
-                    <MenuItem component={Link} to="/writers">
+                    <MenuItem selected={'/writers' === pathname} component={Link} to="/writers">
                         Writers
                     </MenuItem>
                     <MenuList>
                         {writers.map(writer => {
+                            const to = `/writers/${writer.id}`
                         return <MenuItem 
                                     className={classes.nested} 
                                     key={writer.id} 
                                     component={Link} 
-                                    to={`/writers/${writer.id}`}>
+                                    to={to}
+                                    selected={to === pathname}>
                                 {writer.name}
                                 </MenuItem>
                         })}
@@ -144,4 +146,10 @@ class Layout extends Component {
     }
 }
 
-export default withStyles(styles)(Layout)
+// export default withStyles(styles)(Layout)
+
+// instead of nested these functions we can use a compose-function
+export default 
+    compose(
+        withRouter,
+        withStyles(styles))(Layout)
