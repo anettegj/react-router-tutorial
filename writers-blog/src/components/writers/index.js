@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react'
-import {Link, Route, Redirect} from 'react-router-dom'
+import {Link, Route} from 'react-router-dom'
 import Writer from './Writer'
 
 export default ({ match: {url}, writers}) => 

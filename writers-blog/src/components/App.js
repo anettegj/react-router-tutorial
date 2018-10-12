@@ -1,8 +1,10 @@
-import React, { Component, Fragment } from 'react'
-import { BrowserRouter, Link, Route, Switch } from 'react-router-dom'
+import React, { Component } from 'react'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Writers from './writers'
 import {NotFound} from './errors'
+import Layout from './Layout'
 
+ 
 export default class extends Component {
   state = {
     writers: []
@@ -20,19 +22,8 @@ export default class extends Component {
 
     return (
       <BrowserRouter>
-        <Fragment>
-          <ul>
-            <li>
-              {/** Link will help us keeping this a single page application by
-                  making sure the page doesn't reload even though we change the url */}
-              <Link to="/">Home</Link>
-            </li>
-            <li> 
-              <Link to="/writers">Writers</Link>
-            </li>
-          </ul>
+        <Layout writers={writers}>
 
-          <hr/>
           {/** Without Route exact the content of Home is displayed for the Writers link 
             as well. */}
           <Switch>
@@ -41,7 +32,7 @@ export default class extends Component {
             {/**<Route render={() => <h3>404 - Page not found</h3>}/>*/}
             <Route component={NotFound}/>
           </Switch>
-        </Fragment>
+        </Layout>
       </BrowserRouter>
     )
   }
