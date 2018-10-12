@@ -8,9 +8,12 @@ import {
     Hidden,
     Divider,
     CssBaseline,
+    MenuItem,
+    MenuList,
 } from '@material-ui/core'
 import { Menu } from '@material-ui/icons'
 import { withStyles } from '@material-ui/core/styles'
+import { Link } from 'react-router-dom'
 
 const drawerWidth = 240
 
@@ -59,9 +62,17 @@ class Layout extends Component {
 
         const drawer = (
             <div>
-                <div className={classes.toolbar} />
-                hello
-            <Divider />
+                <Hidden smDown>
+                    <div className={classes.toolbar} />
+                </Hidden>
+                <MenuList>
+                    <MenuItem component={Link} to="/">
+                        Home
+                    </MenuItem>
+                    <MenuItem component={Link} to="/writers">
+                        Writers
+                    </MenuItem>
+                </MenuList>
             </div>
         )
         return (
